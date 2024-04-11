@@ -38,6 +38,10 @@ export async function action({ request }) {
         throw json({ message: "Signing up was failed" }, { status: 500 });
     }
 
-    return redirect('/');
+    const resData = await response.json();
+    const token = resData.token;
 
+    localStorage.setItem('token', token)
+
+    return redirect('/');
 }
