@@ -5,13 +5,16 @@ import EventsRoot from "./pages/EventsRoot";
 import EventsPage, { loader as eventsLoader } from "./pages/Events";
 import EventDetailPage, {
     loader as eventDetailLoader,
-    action as eventDetailAction
+    action as eventDetailAction,
 } from "./pages/EventDetail";
 import EditEvent from "./pages/EditEvent";
 import NewEventPage from "./pages/NewEvent";
 import ErrorPage from "./pages/Error";
 import { action as eventManipulatorAction } from "./components/EventForm";
 import NewsletterPage, { action as newsletterAction } from "./pages/Newsletter";
+import AuthenticationPage, {
+    action as authAction,
+} from "./pages/Authentication";
 
 const router = createBrowserRouter([
     {
@@ -45,22 +48,27 @@ const router = createBrowserRouter([
                             {
                                 index: true,
                                 element: <EventDetailPage />,
-                                action: eventDetailAction
+                                action: eventDetailAction,
                             },
                             {
                                 path: "edit",
                                 element: <EditEvent />,
-                                action: eventManipulatorAction
+                                action: eventManipulatorAction,
                             },
                         ],
                     },
                 ],
             },
             {
-                path: 'newsletter',
+                path: "newsletter",
                 element: <NewsletterPage />,
-                action: newsletterAction
-            }
+                action: newsletterAction,
+            },
+            {
+                path: "auth",
+                element: <AuthenticationPage />,
+                action: authAction,
+            },
         ],
     },
 ]);
